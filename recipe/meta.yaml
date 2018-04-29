@@ -1,8 +1,8 @@
 {% set name = "coredns" %}
 {% set version = "1.1.2" %}
 
-{% set sha256 = "7df31f0554071411ff35e66f39eeb24dad8652e215fc69269561c20c3460779a" %}
-{% set sha256_win64 = "b818b1ff3c478d4bfd55ec046539d60cbc75b9c6311dd15a2d00a9678a74cbe8" %}
+{% set sha256 = "8715d41d43adacd3cf9db0a9f6599de4d3024a1808a8029bf4c0d0931397ce35" %}
+{% set sha256_win64 = "5e70498329f15d10bc4ccfdece5a4be8510ade7c5732cc358b7959751a00c09a" %}
 
 
 package:
