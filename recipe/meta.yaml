@@ -1,5 +1,5 @@
-{% set name = "coredns"%}
-{% set version = "1.0.6"%}
+{% set name = "coredns" %}
+{% set version = "1.1.2" %}
 
 {% set sha256 = "7df31f0554071411ff35e66f39eeb24dad8652e215fc69269561c20c3460779a" %}
 {% set sha256_win64 = "b818b1ff3c478d4bfd55ec046539d60cbc75b9c6311dd15a2d00a9678a74cbe8" %}
