@@ -1,10 +1,6 @@
 {% set name = "coredns" %}
 {% set version = "1.1.4" %}
 
-{% set sha256 = "9df762565e0a905f0799a99c417d80d0f2d30e6471302412eb42c601c9d525b5" %}
-{% set sha256_win64 = "02c7759cf5b73e655f8cae800678aedd23e8412c7763bd6e0e576ddb2dfd9fd3" %}
-
-
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -12,11 +8,11 @@ package:
 source:
   url: https://github.com/coredns/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
   fn: {{ name }}-{{ version }}.tar.gz  # [not win]
-  sha256: {{ sha256 }}  # [not win]
+  sha256: db467a3f202921dba79e8a37a2725b7416961b1dd3da32916d28efc88c08f585  # [not win]
 
   url: https://github.com/coredns/{{ name }}/releases/download/v{{ version }}/{{ name }}_{{ version }}_windows_amd64.tgz  # [win]
   fn: {{ name }}-{{ version }}.tgz  # [win]
-  sha256: {{ sha256_win64 }}  # [win]
+  sha256: 9df762565e0a905f0799a99c417d80d0f2d30e6471302412eb42c601c9d525b5  # [win]
 
 build:
   skip: True  # [win32]
@@ -32,7 +28,7 @@ test:
   commands:
     - coredns --version
 
-    # Ugly hack because etcd&etcdclt are not a dynamic executable
+    # Ugly hack because coredns is not a dynamic executable
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [osx]
     - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
 
