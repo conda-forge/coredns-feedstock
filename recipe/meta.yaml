@@ -16,13 +16,12 @@ source:
 
 build:
   skip: True  # [win32]
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - go 1.9.*  # [not win]
     - make  # [not win]
-    - toolchain  # [not win]
+    - go 1.9.*  # [not win]
 
 test:
   commands:
