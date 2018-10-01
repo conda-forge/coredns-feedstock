@@ -1,5 +1,5 @@
 {% set name = "coredns" %}
-{% set version = "1.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -9,11 +9,11 @@ source:
   - folder: src/github.com/coredns/{{ name }}  # [not win]
     url: https://github.com/coredns/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
     fn: {{ name }}-{{ version }}.tar.gz  # [not win]
-    sha256: 6f616382acea534589f6b98b5d59b0c0504053d4b4d4aeb6516f14c11fcb7f49  # [not win]
+    sha256: 21a33e7f7d938caab6aaf19eecc4ddf5fe606914cbaf740037ac8992a5c531cb  # [not win]
 
     url: https://github.com/coredns/{{ name }}/releases/download/v{{ version }}/{{ name }}_{{ version }}_windows_amd64.tgz  # [win]
     fn: {{ name }}-{{ version }}.tgz  # [win]
-    sha256: b894cffe41baf17addc1dbf290cc9cd6f82d555beca3286670f7112d4797780a  # [win]
+    sha256: 224328a760998dc6c4fed8cd7cac701294f9671205d94a1add01ea5375264c2a  # [win]
 
 build:
   skip: True  # [win32]
