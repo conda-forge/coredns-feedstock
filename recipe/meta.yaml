@@ -21,7 +21,7 @@ build:
 requirements:
   build:
     - make  # [not win]
-    - go 1.9.*  # [not win]
+    - {{ compiler('go') }}  # [not win]
 
 test:
   commands:
