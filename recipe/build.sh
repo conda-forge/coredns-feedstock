@@ -1,19 +1,6 @@
 #!/usr/bin/env bash
-
-go_init()
-{
-    export GOPATH=$(pwd)/gopath
-
-    ORG_PATH="github.com/coredns"
-    REPO_PATH="${ORG_PATH}/${PKG_NAME}"
-
-    if [ ! -h gopath/src/${REPO_PATH} ]; then
-        mkdir -p gopath/src/${ORG_PATH}
-        ln -s ../../../.. gopath/src/${REPO_PATH} || exit 255
-    fi
-
-    find $PREFIX/go -type d -exec chmod 555 {} \;
-}
+GOPATH=$SRC_DIR
+ORG_PATH="github.com/coredns"
 
 git_init()
 {
@@ -27,15 +14,15 @@ git_init()
 
 build_unix()
 {
-    cd gopath/src/${ORG_PATH}/${PKG_NAME}
+    cd src/${ORG_PATH}/${PKG_NAME}
     make CHECKS= godeps all
 
+    mkdir -p $PREFIX/bin
     cp coredns $PREFIX/bin
 }
 
 case $(uname -s) in
     "Linux"|"Darwin")
-        go_init
         build_unix
         ;;
     *)
