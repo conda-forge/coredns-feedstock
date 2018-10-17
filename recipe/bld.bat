@@ -1,1 +1,1 @@
-copy coredns %LIBRARY_BIN%\coredns.exe
+XCOPY coredns.exe %LIBRARY_BIN%
