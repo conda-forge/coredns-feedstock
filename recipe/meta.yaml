@@ -1,27 +1,28 @@
 {% set name = "coredns" %}
-{% set version = "1.2.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/coredns/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-  fn: {{ name }}-{{ version }}.tar.gz  # [not win]
-  sha256: ef7f8536b63dd23cff297667da750f8d4c0c9dc80087b6256dc7333c4359665e  # [not win]
+  - folder: src/github.com/coredns/{{ name }}  # [not win]
+    url: https://github.com/coredns/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
+    fn: {{ name }}-{{ version }}.tar.gz  # [not win]
+    sha256: 6f616382acea534589f6b98b5d59b0c0504053d4b4d4aeb6516f14c11fcb7f49  # [not win]
 
-  url: https://github.com/coredns/{{ name }}/releases/download/v{{ version }}/{{ name }}_{{ version }}_windows_amd64.tgz  # [win]
-  fn: {{ name }}-{{ version }}.tgz  # [win]
-  sha256: 731941e87ea070c5804dfe7dfe8204c6ab555889f6b87533ab3e1e12903db83e  # [win]
+    url: https://github.com/coredns/{{ name }}/releases/download/v{{ version }}/{{ name }}_{{ version }}_windows_amd64.tgz  # [win]
+    fn: {{ name }}-{{ version }}.tgz  # [win]
+    sha256: b894cffe41baf17addc1dbf290cc9cd6f82d555beca3286670f7112d4797780a  # [win]
 
 build:
   skip: True  # [win32]
-  number: 1001
+  number: 0
 
 requirements:
   build:
     - make  # [not win]
-    - go 1.9.*  # [not win]
+    - {{ compiler('go') }}  # [not win]
 
 test:
   commands:
