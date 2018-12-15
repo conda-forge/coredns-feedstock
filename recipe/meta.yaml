@@ -28,10 +28,6 @@ test:
   commands:
     - coredns --version
 
-    # Ugly hack because coredns is not a dynamic executable
-    - conda inspect linkages -p $PREFIX {{ name|lower }}  # [osx]
-    - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
-
 about:
   home: https://coredns.io/
   license: Apache-2.0
