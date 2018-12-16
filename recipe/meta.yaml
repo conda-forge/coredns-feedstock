@@ -1,4 +1,5 @@
 {% set name = "coredns" %}
+{% set go_pkg_name = "github.com/coredns/" + name %}
 {% set version = "1.2.6" %}
 
 package:
@@ -6,13 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  - folder: src/github.com/coredns/{{ name }}  # [not win]
-    url: https://github.com/coredns/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-    fn: {{ name }}-{{ version }}.tar.gz  # [not win]
-    sha256: c3d2bc2654d83dd96aee2e0bf2437398a62eee1eb7ae704b5ca665ca2ae38a14  # [not win]
+  - folder: src/{{ go_pkg_name }}  # [not win]
+    git_url: https://{{ go_pkg_name }}  # [not win]
+    git_rev: v{{ version }}  # [not win]
 
     url: https://github.com/coredns/{{ name }}/releases/download/v{{ version }}/{{ name }}_{{ version }}_windows_amd64.tgz  # [win]
-    fn: {{ name }}-{{ version }}.tgz  # [win]
     sha256: 4df05d32e5727d5f5eb8e0b796395e32523af51dae8f21f3d4e79718811f7ab7  # [win]
 
 build:
@@ -28,13 +27,9 @@ test:
   commands:
     - coredns --version
 
-    # Ugly hack because coredns is not a dynamic executable
-    - conda inspect linkages -p $PREFIX {{ name|lower }}  # [osx]
-    - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
-
 about:
   home: https://coredns.io/
-  license: Apache-2.0
+  license: Apache 2.0
   license_family: Apache
   summary: CoreDNS is a DNS server written in Go that chains plugins
   doc_url: https://coredns.io/manual/toc/
