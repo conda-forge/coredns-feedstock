@@ -12,7 +12,7 @@ source:
     git_rev: v{{ version }}  # [not win]
 
     url: https://github.com/coredns/{{ name }}/releases/download/v{{ version }}/{{ name }}_{{ version }}_windows_amd64.tgz  # [win]
-    sha256: 79256289d1db019eca5618535f4fd95bdf202aa65f7c4e71be77075cc0844445  # [win]
+    sha256: 7c793b042cf0738340a624e5784be32909ceaa58fee074d732c8aeb598df6376  # [win]
 
 build:
   skip: True  # [win32]
