@@ -15,7 +15,6 @@ source:
     sha256: a9b10c3bad1cd2b13d50f1e8cb1cb142a94c75a27d96d9d0d7fd59d261d16867  # [win]
 
 build:
-  skip: True  # [win32]
   number: 0
 
 requirements:
