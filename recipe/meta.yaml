@@ -1,6 +1,6 @@
 {% set name = "coredns" %}
 {% set go_pkg_name = "github.com/coredns/" + name %}
-{% set version = "1.4.0" %}
+{% set version = "1.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
     git_rev: v{{ version }}  # [not win]
 
     url: https://github.com/coredns/{{ name }}/releases/download/v{{ version }}/{{ name }}_{{ version }}_windows_amd64.tgz  # [win]
-    sha256: 7c793b042cf0738340a624e5784be32909ceaa58fee074d732c8aeb598df6376  # [win]
+    sha256: a9b10c3bad1cd2b13d50f1e8cb1cb142a94c75a27d96d9d0d7fd59d261d16867  # [win]
 
 build:
   skip: True  # [win32]
