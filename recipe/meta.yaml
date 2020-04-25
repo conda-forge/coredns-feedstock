@@ -1,30 +1,27 @@
 {% set name = "coredns" %}
 {% set go_pkg_name = "github.com/coredns/" + name %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - folder: src/{{ go_pkg_name }}  # [not win]
-    git_url: https://{{ go_pkg_name }}  # [not win]
-    git_rev: v{{ version }}  # [not win]
-
-    url: https://github.com/coredns/{{ name }}/releases/download/v{{ version }}/{{ name }}_{{ version }}_windows_amd64.tgz  # [win]
-    sha256: a9b10c3bad1cd2b13d50f1e8cb1cb142a94c75a27d96d9d0d7fd59d261d16867  # [win]
+  url: https://github.com/coredns/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 3345f15186353a24257149299103f64ad8531214cb874b9c91cff4db8d45b91a
 
 build:
   number: 0
+  script:
+    - go install -v -ldflags "-s -w" .
 
 requirements:
   build:
-    - make  # [not win]
-    - {{ compiler('go') }}  # [not win]
+    - {{ compiler('go') }} 1.13
 
 test:
   commands:
-    - coredns --version
+    - coredns -version
 
 about:
   home: https://coredns.io/
