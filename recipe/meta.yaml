@@ -25,7 +25,8 @@ test:
 
 about:
   home: https://coredns.io/
-  license: Apache 2.0
+  license: Apache-2.0
+  license_file: LICENSE
   license_family: Apache
   summary: CoreDNS is a DNS server written in Go that chains plugins
   doc_url: https://coredns.io/manual/toc/
