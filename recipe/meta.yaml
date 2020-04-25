@@ -1,6 +1,6 @@
 {% set name = "coredns" %}
 {% set go_pkg_name = "github.com/coredns/" + name %}
-{% set version = "1.5.1" %}
+{% set version = "1.6.4" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/coredns/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 3345f15186353a24257149299103f64ad8531214cb874b9c91cff4db8d45b91a
+  sha256: 086a0336c505878ff7efe6bdd3270993fbe01016fd770550c47282bf68265777
 
 build:
   number: 0
