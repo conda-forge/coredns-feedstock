@@ -5,11 +5,13 @@ Home: https://coredns.io/
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/coredns-feedstock/blob/master/LICENSE.txt)
 
 Summary: CoreDNS is a DNS server written in Go that chains plugins
 
+Development: https://github.com/coredns/coredns
 
+Documentation: https://coredns.io/manual/toc/
 
 Current build status
 ====================
