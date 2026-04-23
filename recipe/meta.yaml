@@ -11,7 +11,7 @@ source:
   sha256: d85c8c52f4d38ab1915eb60523b4e5241ffa19d20e4f7bbce8b0f4fb59171f2a
 
 build:
-  number: 0
+  number: 1
   script:
     - go install -v -ldflags "-s -w" .
 
