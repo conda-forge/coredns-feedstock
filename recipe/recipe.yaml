@@ -1,0 +1,47 @@
+context:
+  version: "1.15.0"
+
+package:
+  name: coredns
+  version: ${{ version }}
+
+source:
+  url: https://github.com/coredns/coredns/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 6631fd1d6daccb6eea5a31f31cf8295080aa43c9d0683ff6680b19224c4c2d57
+
+build:
+  number: 0
+  script:
+    env:
+      GOTOOLCHAIN: local
+      GOFLAGS: -tags=grpcnotrace
+    content:
+      - go install -v -trimpath -ldflags="-s -w" .
+      - go-licenses save . --save_path=license-files
+
+requirements:
+  build:
+    - ${{ compiler('go') }}
+    # Match the security-patched toolchain used for the upstream 1.15.0 release.
+    - go >=1.27.3
+    - go-licenses
+
+tests:
+  - script:
+      - coredns -version
+      - coredns -plugins
+
+about:
+  homepage: https://coredns.io/
+  license: Apache-2.0
+  license_file:
+    - LICENSE
+    - license-files/
+  summary: CoreDNS is a DNS server written in Go that chains plugins
+  documentation: https://coredns.io/manual/toc/
+  repository: https://github.com/coredns/coredns
+
+extra:
+  recipe-maintainers:
+    - sodre
+    - wolfv
